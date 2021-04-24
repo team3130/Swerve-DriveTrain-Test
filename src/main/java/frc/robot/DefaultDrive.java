@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import java.util.function.DoubleSupplier;
 
 public class DefaultDrive extends CommandBase {
-    private final SwerveDrive m_chassis;
+    private final Chassis m_chassis;
 
-    public DefaultDrive(SwerveDrive subsystem, DoubleSupplier  forward, DoubleSupplier rotation) {
+    public DefaultDrive(Chassis subsystem, DoubleSupplier  forward, DoubleSupplier rotation) {
         m_chassis = subsystem;
         m_requirements.add(m_chassis);
     }
@@ -27,7 +27,7 @@ public class DefaultDrive extends CommandBase {
     @Override
     public void execute() {
         double moveSpeed = -RobotContainer.m_driverGamepad.getRawAxis(1); //joystick's y axis is inverted
-        double turnSpeed = RobotContainer.m_driverGamepad.getRawAxis(4) * RobotMap.kMaxHighGearDriveSpeed;
+        double turnSpeed = RobotContainer.m_driverGamepad.getRawAxis(4);
         m_chassis.drive(moveSpeed, RobotMap.kMaxTurnThrottle * turnSpeed);
     }
 
