@@ -64,5 +64,17 @@ public class SwerveDrive extends SubsystemBase {
         m_leftMotorRearBrrrrrrrr.follow(m_leftMotorFrontBrrrrrrrr);
         m_rightMotorRearBrrrrrrrr.follow(m_rightMotorFrontBrrrrrrrr);
     }
-}
 
+    public void configRampRate(double maxRampRateSeconds) {
+        m_rightMotorFrontSpinnn.configOpenloopRamp(maxRampRateSeconds);
+        m_leftMotorFrontSpinnn.configOpenloopRamp(maxRampRateSeconds);
+
+        m_rightMotorFrontBrrrrrrrr.configOpenloopRamp(maxRampRateSeconds);
+        m_leftMotorFrontBrrrrrrrr.configOpenloopRamp(maxRampRateSeconds);
+    }
+
+    public SwerveDrive drive(double moveSpeed, double turnSpeed) {
+        
+    }
+
+}
