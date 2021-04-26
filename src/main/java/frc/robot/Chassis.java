@@ -1,5 +1,6 @@
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -25,9 +26,6 @@ public class Chassis extends SubsystemBase {
     private WPI_TalonFX m_leftMotorRearBrrrrrrrr;
     private WPI_TalonFX m_rightMotorFrontBrrrrrrrr;
     private WPI_TalonFX m_rightMotorRearBrrrrrrrr;
-
-    private SpeedControllerGroup m_leftspinnn;
-    private SpeedControllerGroup m_rightspinnn;
 
     private SpeedControllerGroup m_leftBrrrrrrrr;
     private SpeedControllerGroup m_rightBrrrrrrrr;
@@ -56,9 +54,6 @@ public class Chassis extends SubsystemBase {
         m_rightMotorFrontBrrrrrrrr.configFactoryDefault();
         m_rightMotorRearBrrrrrrrr.configFactoryDefault();
 
-        m_leftspinnn = new SpeedControllerGroup(m_leftMotorFrontSpinnn, m_leftMotorRearSpinnn);
-        m_rightspinnn = new SpeedControllerGroup(m_rightMotorFrontSpinnn, m_rightMotorRearSpinnn);
-
         m_leftBrrrrrrrr = new SpeedControllerGroup(m_leftMotorFrontBrrrrrrrr, m_leftMotorRearBrrrrrrrr);
         m_rightBrrrrrrrr = new SpeedControllerGroup(m_rightMotorFrontBrrrrrrrr, m_rightMotorRearBrrrrrrrr);
 
@@ -68,7 +63,7 @@ public class Chassis extends SubsystemBase {
         m_leftMotorRearBrrrrrrrr.follow(m_leftMotorFrontBrrrrrrrr);
         m_rightMotorRearBrrrrrrrr.follow(m_rightMotorFrontBrrrrrrrr);
 
-        m_drive = new SwerveDrive(new ArrayList<>(List.of(m_rightBrrrrrrrr, m_leftBrrrrrrrr)), new ArrayList<>(List.of(m_rightspinnn, m_leftspinnn)));
+        m_drive = new SwerveDrive(new ArrayList<>(List.of(m_rightBrrrrrrrr, m_leftBrrrrrrrr)), new ArrayList<>(List.of(m_rightMotorFrontSpinnn, m_rightMotorRearSpinnn, m_leftMotorRearSpinnn, m_leftMotorFrontSpinnn)));
     }
 
     public void configRampRate(double maxRampRateSeconds) {
