@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class RobotContainer {
@@ -23,13 +24,13 @@ public class RobotContainer {
     // Binding the buttons and triggers that are defined above to respective commands
     public RobotContainer() {
         configureButtonBindings();
-/*        m_chassis.setDefaultCommand(
+        m_chassis.setDefaultCommand(
                 new DefaultDrive(
                         m_chassis,
                         () -> m_driverGamepad.getY(GenericHID.Hand.kLeft),
                         () -> m_driverGamepad.getX(GenericHID.Hand.kRight)
                 )
-        );*/
+        );
 
         //TODO: complete when you have made auton commands
 
