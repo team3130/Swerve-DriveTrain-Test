@@ -1,11 +1,7 @@
-package frc.robot;
+package frc.robot.Commands;
 
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.robot.ExampleSubsystem;
-
-import java.util.Set;
+import frc.robot.Subsystems.ExampleSubsystem;
 
 public class ExampleCommand extends CommandBase {
     // defining an instance to be used throughout the command and to be instantiated in the constructor of type parameter
